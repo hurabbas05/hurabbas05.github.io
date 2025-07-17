@@ -1,1 +1,259 @@
-,
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syed Hur Abbas Naqvi | Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav {
+      background-color: #1f2937;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .dark-mode {
+      background-color: #111827;
+      color: #f9fafb;
+    }
+    .dark-mode nav {
+      background-color: #0f172a;
+    }
+    .dark-mode .about-box {
+      background-color: #1e3a8a;
+      color: white;
+    }
+    header {
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      margin: 0.3rem;
+    }
+    .contact-icons a {
+      margin-right: 15px;
+      color: white;
+      font-size: 1.3rem;
+    }
+    .toggle-darkmode {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+    }
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .about-box {
+      background-color: #e0f2fe;
+      padding: 2rem;
+      border-left: 8px solid #0ea5e9;
+      border-radius: 10px;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      color: #1f2937;
+      border-left: 5px solid #3b82f6;
+      padding-left: 0.7rem;
+    }
+    .skills .badge {
+      background-color: #dbeafe;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin: 5px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .project-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .project-card-content {
+      padding: 1.2rem;
+    }
+    .project-card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.4rem;
+    }
+    .project-card p {
+      margin-bottom: 1rem;
+    }
+    .project-card a {
+      background-color: #3b82f6;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+    footer {
+      background-color: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#internships">Internships</a>
+    <a href="#certs">Certifications</a>
+    <a href="#education">Education</a>
+    <a href="Syed_Hur_Abbas_Naqvi_CV.pdf" target="_blank">📄 Resume</a>
+    <span class="toggle-darkmode" onclick="document.body.classList.toggle('dark-mode')">🌙</span>
+  </nav>
+
+  <header>
+    <h1>Syed Hur Abbas Naqvi</h1>
+    <p>📊 Data Analyst | Insight-Driven Decision Making</p>
+    <p class="contact-icons">
+      <a href="mailto:syedhur572@gmail.com" title="Gmail"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/hurabbas05/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+923036098700" title="Phone"><i class="fas fa-phone-alt"></i></a>
+    </p>
+  </header>
+
+  <section class="section" id="about">
+    <h2>🧠 About Me</h2>
+    <div class="about-box">
+      <p>I’m a data analyst with a strong grasp of transforming raw datasets into meaningful insights. My background in clinical care and analytical tools helps bridge real-world healthcare problems with data-driven solutions. Passionate about visualization, automation, and decision intelligence.</p>
+      <p><a href="Syed_Hur_Abbas_Naqvi_CV.pdf" target="_blank" style="display:inline-block;margin-top:1rem;background:#1d4ed8;color:white;padding:0.5rem 1rem;text-decoration:none;border-radius:5px;">📥 Download My Resume</a></p>
+    </div>
+  </section>
+
+  <section class="section skills" id="skills">
+    <h2>🛠 Skills</h2>
+    <span class="badge">Python</span>
+    <span class="badge">Pandas</span>
+    <span class="badge">NumPy</span>
+    <span class="badge">Matplotlib</span>
+    <span class="badge">Seaborn</span>
+    <span class="badge">Scikit-learn</span>
+    <span class="badge">Power BI</span>
+    <span class="badge">Tableau</span>
+    <span class="badge">Excel</span>
+    <span class="badge">MySQL</span>
+    <span class="badge">Canva</span>
+    <span class="badge">Jira</span>
+  </section>
+
+  <section class="section projects" id="projects">
+    <h2>📁 Projects</h2>
+    <div class="grid-2">
+      <div class="project-card">
+        <img src="https://raw.githubusercontent.com/hurabbas05/Loan-Default-Risk-Analysis/main/assets/loan-cover.jpg" alt="Loan Default Risk Analysis">
+        <div class="project-card-content">
+          <h3>Loan Default Risk Analysis</h3>
+          <p>Analyzed 32,000+ records to predict defaulters using EDA, feature engineering, and Random Forest (97% accuracy).</p>
+          <a href="https://github.com/hurabbas05/Loan-Default-Risk-Analysis" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://raw.githubusercontent.com/hurabbas05/Capstone-Dry-Eye-Disease-Project/main/assets/ded-cover.jpg" alt="Dry Eye Disease Project">
+        <div class="project-card-content">
+          <h3>Dry Eye Disease Analysis</h3>
+          <p>Explored lifestyle-driven risk factors for Dry Eye Disease using clinical records, symptom mapping, and predictive modeling.</p>
+          <a href="https://github.com/hurabbas05/Capstone-Dry-Eye-Disease-Project" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="internships">
+    <h2>💼 Internships</h2>
+    <div class="grid-2">
+      <div>
+        <h3>AI-Powered Data Insights Intern – Excelerate</h3>
+        <p>Used Python, EDA, predictive modeling to reduce student churn. Delivered final report with recommendations and dashboard.</p>
+      </div>
+      <div>
+        <h3>Marketing Insights Intern – Glimpse (Excelerate)</h3>
+        <p>Led 4-week social strategy, competitor analysis & influencer campaigns using Canva, LinkedIn, Instagram & data reports.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="certs">
+    <h2>📜 Certifications</h2>
+    <ul>
+      <li>✔️ Data Analytics Certificate – Institute of Emerging Careers</li>
+      <li>✔️ AI for Everyone – Coursera</li>
+    </ul>
+  </section>
+
+  <section class="section" id="education">
+    <h2>🎓 Education</h2>
+    <p>Bachelor of Optometry & Orthoptics – PIO, Al-Shifa Trust Eye Hospital (2023–Present)</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Syed Hur Abbas Naqvi — Portfolio powered by GitHub Pages</p>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const toggle = document.querySelector('.toggle-darkmode');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
+
