@@ -1,1 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syed Hur Abbas Naqvi | Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #f3f8fc 40%, #fce4ec 100%);
+      color: #1f2937;
+      line-height: 1.7;
+    }
+    nav {
+      background-color: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .nav-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #7c3aed; }
+    header {
+      background-color: #102a54;
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 1px;
+    }
+    header .subtitle {
+      font-size: 1.2rem;
+      color: #f1f5f9;
+      margin-bottom: 1rem;
+    }
+    header .portfolio-title {
+      position: absolute;
+      top: 2.2rem;
+      left: 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f3f4f6;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 900px) {
+      header .portfolio-title { position: static; display: block; margin-bottom: 1rem;}
+    }
+    .contact-info, .footer-contact-info {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .btn-contact {
+      background: linear-gradient(90deg, #0ea5e9 55%, #f472b6 100%);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      padding: 0.5rem 1.4rem;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 2px 12px rgba(40,60,90,0.10);
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .btn-contact:hover {
+      background: linear-gradient(90deg, #7c3aed 60%, #0ea5e9 100%);
+      color: #fff;
+    }
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2.2rem 1rem 2rem 1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      color: #102a54;
+      border-left: 5px solid #0ea5e9;
+      padding-left: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .about-box {
+      background: linear-gradient(90deg, #e3f2fd 80%, #fce4ec 100%);
+      padding: 2rem;
+      border-left: 8px solid #0ea5e9;
+      border-radius: 13px;
+      margin-bottom: 1rem;
+      font-size: 1.12rem;
+      box-shadow: 0 2px 10px rgba(40,60,90,0.05);
+    }
+    /* Skills (only text, no icons!) */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .skill-category {
+      background: #f3f6fa;
+      border-radius: 10px;
+      padding: 1.1rem 1rem;
+      box-shadow: 0 2px 8px rgba(40,60,90,0.04);
+      margin-bottom: 0.5rem;
+    }
+    .skill-category strong {
+      color: #0ea5e9;
+      font-size: 1.07rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .skill-badges {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .badge {
+      background: #e0e7ef;
+      color: #0f172a;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 5px rgba(100,100,180,0.07);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+    .card, .internship-card, .project-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+      overflow: hidden;
+      transition: transform 0.27s ease;
+      border: 1.5px solid #e0e7ef;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card img, .internship-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #e3f2fd;
+      display: block;
+    }
+    .card-content, .internship-card-content, .project-card-content {
+      padding: 1.25rem 1.1rem;
+    }
+    .card h3, .internship-card h3, .project-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .card p, .internship-card p, .project-card p {
+      margin-bottom: 0.7rem;
+    }
+    .card a, .internship-card .btn-readmore {
+      background: linear-gradient(90deg, #0ea5e9 60%, #f472b6 100%);
+      color: white;
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-right: 10px;
+      margin-top: 5px;
+      transition: background 0.22s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(40,60,90,0.10);
+    }
+    .card a:hover, .internship-card .btn-readmore:hover {
+      background: linear-gradient(90deg, #7c3aed 60%, #0ea5e9 100%);
+      color: #fff;
+    }
+    .internship-cards-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .internship-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .internship-row { grid-template-columns: 1fr; }
+    }
+    .project-card {
+      min-height: 210px;
+      justify-content: flex-start;
+    }
+    .education-box {
+      background: linear-gradient(90deg, #e3f2fd 80%, #fce4ec 100%);
+      padding: 1.7rem;
+      border-left: 8px solid #0ea5e9;
+      border-radius: 13px;
+      font-size: 1.13rem;
+      box-shadow: 0 2px 10px rgba(40,60,90,0.05);
+      margin-bottom: 1rem;
+    }
+    footer {
+      background-color: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 1.01rem;
+    }
+    .footer-contact-info {
+      margin-bottom: 1.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .footer-contact-info .btn-contact {
+      margin-bottom: 0 !important;
+    }
+    .internship-details {
+      display: none;
+      font-size: 0.99rem;
+      margin-top: 0.5rem;
+      color: #374151;
+      background: #f3f6fa;
+      border-radius: 9px;
+      padding: 1rem;
+      box-shadow: 0 1px 4px rgba(40,60,90,0.07);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-title">Syed Hur Abbas Naqvi</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
+      <a href="#certs">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="https://drive.google.com/file/d/1DC3K8RxfSXeyXST5tI2O0FN2eLX--wRv/view?usp=sharing" target="_blank">📄 Download CV</a>
+    </div>
+  </nav>
 
+  <header>
+    <span class="portfolio-title">Data Analyst Portfolio</span>
+    <h1>SYED HUR ABBAS NAQVI</h1>
+    <div class="subtitle">📊 Driving Decisions with Data | Insight-Driven Analytics</div>
+    <div class="contact-info">
+      <a class="btn-contact" href="mailto:syedhur572@gmail.com" title="Gmail">Gmail</a>
+      <a class="btn-contact" href="https://www.linkedin.com/in/hurabbas05/" target="_blank" title="LinkedIn">LinkedIn</a>
+      <a class="btn-contact" href="https://github.com/hurabbas05" target="_blank" title="GitHub">GitHub</a>
+      <a class="btn-contact" href="tel:+923036098700" title="Phone">+92 3036098700</a>
+      <a class="btn-contact" href="https://www.google.com/maps?q=Pakistan" target="_blank" title="Location">Pakistan</a>
+    </div>
+  </header>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="about-box">
+      <p>Data Analyst with a strong grasp of turning raw data into clear, actionable insights. Skilled in data visualization, reporting, and analytics, with added perspective from clinical experience. Adept at uncovering trends and translating complex information into practical recommendations. Focused on driving smart decisions in fast-paced, growth-oriented teams.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="section skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <strong>Languages</strong>
+        <div class="skill-badges">
+          <span class="badge">Python (Jupyter Notebook)</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">NumPy</span>
+          <span class="badge">Scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <strong>Data Visualization</strong>
+        <div class="skill-badges">
+          <span class="badge">Power BI</span>
+          <span class="badge">Tableau</span>
+          <span class="badge">Matplotlib</span>
+          <span class="badge">Seaborn</span>
+          <span class="badge">MS Excel (Advanced)</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <strong>Databases</strong>
+        <div class="skill-badges">
+          <span class="badge">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <strong>Data Analytics</strong>
+        <div class="skill-badges">
+          <span class="badge">Statistical Testing</span>
+          <span class="badge">Regression Analysis</span>
+          <span class="badge">Hypothesis Testing</span>
+          <span class="badge">ETL</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <strong>Others</strong>
+        <div class="skill-badges">
+          <span class="badge">Project Management</span>
+          <span class="badge">Jira</span>
+          <span class="badge">Canva</span>
+          <span class="badge">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="grid-2">
+      <div class="card">
+        <img src="assets/ded_thumbnail.jpg" alt="DED Project">
+        <div class="card-content">
+          <h3>Capstone Dry Eye Disease Project</h3>
+          <p>Exploratory analysis of Dry Eye Disease patterns using patient data, sleep habits, and lifestyle factors.</p>
+          <a href="https://github.com/hurabbas05/Capstone-Dry-Eye-Disease-Project" target="_blank">View Code</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/loan_default.jpg" alt="Loan Project">
+        <div class="card-content">
+          <h3>Loan Default Risk Analysis</h3>
+          <p>Data-driven loan default risk analysis using Python, Pandas, and Matplotlib.</p>
+          <a href="https://github.com/hurabbas05/Loan-Default-Risk-Analysis-Project" target="_blank">View Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="internships" class="section">
+    <h2>Internships</h2>
+    <div class="internship-cards-flex">
+      <div class="internship-row">
+        <!-- Internship 1 -->
+        <div class="internship-card">
+          <img src="assets/glimpse_marketing.jpg" alt="Glimpse Marketing Internship">
+          <div class="internship-card-content">
+            <h3>Marketing Insights & Innovation Intern – Glimpse</h3>
+            <p><strong>Platform:</strong> Excelerate</p>
+            <p><strong>Duration:</strong> June – July 2025</p>
+            <p><strong>Location:</strong> Remote | Dubai, UAE</p>
+            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
+            <div class="internship-details">
+              <ul>
+                <li>Revived Glimpse’s social media presence by leading a 4-week digital campaign strategy tailored for the university market across Instagram & LinkedIn.</li>
+                <li>Conducted in-depth competitor analysis and audience research to craft trend-driven content calendars, optimized visuals, and platform-specific engagement.</li>
+                <li>Launched influencer outreach & interactive campaigns (polls, giveaways, stories), helping position Glimpse as a go-to travel merchandising partner.</li>
+                <li>Analyzed content performance using reach, engagement, and growth metrics to shape next-month’s marketing roadmap with data-backed decisions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Internship 2 -->
+        <div class="internship-card">
+          <img src="assets/ai_data_insights.jpg" alt="AI Data Insights Internship">
+          <div class="internship-card-content">
+            <h3>AI-Powered Data Insights Intern – Excelerate</h3>
+            <p><strong>Platform:</strong> Excelerate</p>
+            <p><strong>Duration:</strong> June – July 2025</p>
+            <p><strong>Location:</strong> Remote | Global</p>
+            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
+            <div class="internship-details">
+              <ul>
+                <li>Analyzed student engagement data to uncover signup trends, identify drop-off patterns, and recommend strategies for improving completion rates.</li>
+                <li>Cleaned and transformed raw datasets, conducted exploratory data analysis (EDA), and built predictive churn models using classification techniques.</li>
+                <li>Delivered a final report and presentation highlighting insights, model outcomes, and a prototype recommendation system to enhance student retention.</li>
+                <li>Collaborated with an international team of data interns, coordinating across time zones to deliver a cohesive, data-driven solution.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="internship-row">
+        <!-- Internship 3 -->
+        <div class="internship-card">
+          <img src="assets/data_visualization.jpg" alt="Data Visualization Internship">
+          <div class="internship-card-content">
+            <h3>Data Visualization Intern – GlobalShala</h3>
+            <p><strong>Platform:</strong> Excelerate</p>
+            <p><strong>Duration:</strong> July 2025 – Present</p>
+            <p><strong>Location:</strong> Remote | Global</p>
+            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
+            <div class="internship-details">
+              <ul>
+                <li>Currently contributing to a collaborative project analyzing marketing campaign data to identify cost-saving insights for the Finance team.</li>
+                <li>Working on refining data visualizations and presentation design to clearly communicate campaign performance and actionable recommendations.</li>
+                <li>Collaborating with an international team to create a final stakeholder-facing presentation based on analytics and design best practices.</li>
+                <li>Designing a high-impact presentation using professional visual principles to translate complex findings into clear, executive-ready storytelling.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Internship 4 -->
+        <div class="internship-card">
+          <img src="assets/project_management.jpg" alt="Project Management Internship">
+          <div class="internship-card-content">
+            <h3>Project Management Intern – Excelerate</h3>
+            <p><strong>Platform:</strong> Excelerate</p>
+            <p><strong>Duration:</strong> July 2025 – Present</p>
+            <p><strong>Location:</strong> Remote | Global</p>
+            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
+            <div class="internship-details">
+              <ul>
+                <li>Developing a comprehensive project plan for a global virtual event, including scope definition, Gantt-based scheduling, and initial risk assessment.</li>
+                <li>Collaborating with a cross-functional, international team to draft proposals, allocate resources, and align deliverables within a $30,000 budget.</li>
+                <li>Participating in structured weekly reviews and internal team syncs to monitor progress, optimize planning, and ensure timeline alignment.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications section: UPDATED TEXT ONLY, per your request -->
+  <section id="certs" class="section">
+    <h2>Certifications</h2>
+    <div class="grid-2">
+      <div class="project-card">
+        <div class="project-card-content">
+          <h3>Data Analysis Certificate</h3>
+          <p><strong>Institute:</strong> Institute of Emerging Careers</p>
+          <p>Mastered practical skills in Python, MySQL, Power BI, data wrangling, visualization, and advanced statistics. This course empowered me with all the core portfolio skills used in real-world analytics projects.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-card-content">
+          <h3>AI for Everyone</h3>
+          <p><strong>Institute:</strong> Coursera (by Andrew Ng)</p>
+          <p>Developed a strong understanding of practical AI concepts and ethics, enabling collaboration and leadership in innovative, AI-driven teams and projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <div class="education-box">
+      <p><strong>Pakistan Institute of Ophthalmology, Al-Shifa Trust Eye Hospital – Rawalpindi</strong></p>
+      <p><em>BSc (Hons) Optometry and Orthoptics</em></p>
+      <p>2023 – Present</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-contact-info">
+      <a class="btn-contact" href="mailto:syedhur572@gmail.com" title="Gmail">Gmail</a>
+      <a class="btn-contact" href="https://www.linkedin.com/in/hurabbas05/" target="_blank" title="LinkedIn">LinkedIn</a>
+      <a class="btn-contact" href="https://github.com/hurabbas05" target="_blank" title="GitHub">GitHub</a>
+      <a class="btn-contact" href="tel:+923036098700" title="Phone">+92 3036098700</a>
+      <a class="btn-contact" href="https://www.google.com/maps?q=Pakistan" target="_blank" title="Location">Pakistan</a>
+    </div>
+    <p>© 2025 Syed Hur Abbas Naqvi — Portfolio powered by GitHub Pages</p>
+  </footer>
+
+  <script>
+    // Internship details toggle: only one card toggles at a time
+    function toggleInternship(btn) {
+      var card = btn.closest('.internship-card');
+      var details = card.querySelector('.internship-details');
+      document.querySelectorAll('.internship-details').forEach(function(d) {
+        if (d !== details) { d.style.display = "none"; }
+      });
+      document.querySelectorAll('.btn-readmore').forEach(function(b) {
+        if (b !== btn) { b.innerText = "Read More"; }
+      });
+      if (details.style.display === "block") {
+        details.style.display = "none";
+        btn.innerText = "Read More";
+      } else {
+        details.style.display = "block";
+        btn.innerText = "Hide Details";
+      }
+    }
+  </script>
+</body>
+</html>
