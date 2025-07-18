@@ -11,19 +11,20 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
+      background: linear-gradient(to bottom, #e3f2fd, #ffffff);
       color: #1f2937;
       line-height: 1.6;
-      transition: background-color 0.3s ease, color 0.3s ease;
     }
     nav {
       background-color: #1f2937;
       color: white;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 2rem;
       padding: 1rem 0;
       position: sticky;
@@ -34,17 +35,6 @@
       color: white;
       text-decoration: none;
       font-weight: 600;
-    }
-    .dark-mode {
-      background-color: #111827;
-      color: #f9fafb;
-    }
-    .dark-mode nav {
-      background-color: #0f172a;
-    }
-    .dark-mode .about-box {
-      background-color: #1e3a8a;
-      color: white;
     }
     header {
       background: linear-gradient(90deg, #3b82f6, #06b6d4);
@@ -63,14 +53,6 @@
       margin-right: 15px;
       color: white;
       font-size: 1.3rem;
-    }
-    .toggle-darkmode {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 1.2rem;
-      color: white;
-      cursor: pointer;
     }
     .section {
       max-width: 1100px;
@@ -136,7 +118,6 @@
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
-      margin-right: 10px;
     }
     footer {
       background-color: #1f2937;
@@ -144,6 +125,7 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -156,7 +138,6 @@
     <a href="#certs">Certifications</a>
     <a href="#education">Education</a>
     <a href="Syed_Hur_Abbas_Naqvi_CV.pdf" target="_blank">📄 Resume</a>
-    <span class="toggle-darkmode" onclick="document.body.classList.toggle('dark-mode')">🌙</span>
   </nav>
 
   <header>
@@ -191,6 +172,8 @@
     <span class="badge">MySQL</span>
     <span class="badge">Canva</span>
     <span class="badge">Jira</span>
+    <span class="badge">Git & GitHub</span>
+    <span class="badge">Project Management</span>
   </section>
 
   <section class="section projects" id="projects">
@@ -204,7 +187,6 @@
           <a href="https://github.com/hurabbas05/Loan-Default-Risk-Analysis" target="_blank">GitHub</a>
         </div>
       </div>
-
       <div class="project-card">
         <img src="https://raw.githubusercontent.com/hurabbas05/Capstone-Dry-Eye-Disease-Project/main/assets/ded-cover.jpg" alt="Dry Eye Disease Project">
         <div class="project-card-content">
@@ -221,11 +203,19 @@
     <div class="grid-2">
       <div>
         <h3>AI-Powered Data Insights Intern – Excelerate</h3>
-        <p>Used Python, EDA, predictive modeling to reduce student churn. Delivered final report with recommendations and dashboard.</p>
+        <p>Analyzed engagement data, cleaned and modeled datasets using Python. Built predictive models and proposed retention strategies.</p>
       </div>
       <div>
         <h3>Marketing Insights Intern – Glimpse (Excelerate)</h3>
-        <p>Led 4-week social strategy, competitor analysis & influencer campaigns using Canva, LinkedIn, Instagram & data reports.</p>
+        <p>Led campaign strategy for university audience on Instagram & LinkedIn. Executed influencer and content plans using data insights.</p>
+      </div>
+      <div>
+        <h3>Data Visualization Intern – GlobalShala (Excelerate)</h3>
+        <p>Designed visual reports to evaluate marketing cost performance using Excel and Canva. Collaborated with global teams for presentation-ready visuals.</p>
+      </div>
+      <div>
+        <h3>Project Management Intern – Excelerate</h3>
+        <p>Planned virtual event with defined scope, Gantt scheduling, and $30K budget tracking. Worked in teams across USA, UAE, and Pakistan.</p>
       </div>
     </div>
   </section>
@@ -244,16 +234,8 @@
   </section>
 
   <footer>
+    <p>📍 Pakistan | 📧 syedhur572@gmail.com | 🔗 <a href="https://www.linkedin.com/in/hurabbas05/" style="color:white;">LinkedIn</a> | 📞 +923036098700</p>
     <p>© 2025 Syed Hur Abbas Naqvi — Portfolio powered by GitHub Pages</p>
   </footer>
-
-  <script>
-    // Dark mode toggle
-    const toggle = document.querySelector('.toggle-darkmode');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-  </script>
 </body>
 </html>
-
