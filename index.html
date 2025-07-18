@@ -1,1 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Syed Hur Abbas Naqvi - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* --- Keep your original CSS here --- */
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(to right, #f8faff, #ffe4f7);
+      color: #203354;
+      margin: 0;
+    }
+    header {
+      background: #122344;
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+    .portfolio-title { margin: 0.5rem 0 1rem 0; font-size: 1.3rem; }
+    .portfolio-links a, .portfolio-links span {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(90deg, #00c6fb 0%, #f3a4ff 100%);
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 500;
+    }
+    .portfolio-links i { margin-right: 0.5rem; }
+    nav { margin-top: 1rem; }
+    nav a {
+      color: #fff;
+      margin: 0 0.7rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #f3a4ff; }
+    section {
+      margin: 2rem auto;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(25,42,86,0.07);
+      padding: 2rem;
+    }
+    .portfolio-about {
+      background: linear-gradient(90deg, #c7eaff 0%, #ffe4f7 100%);
+      padding: 1.2rem;
+      border-radius: 12px;
+      font-size: 1.08rem;
+    }
+    .skills-grid, .projects-grid, .internships-grid, .certifications-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .skills-category {
+      flex: 1 1 180px;
+      min-width: 180px;
+      background: #f7fcff;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .skill-badge {
+      background: linear-gradient(90deg, #00c6fb 0%, #f3a4ff 100%);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 1.2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      display: inline-block;
+    }
+    .project-card, .internship-card, .cert-card, .education-card {
+      background: #f7fcff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(25,42,86,0.06);
+      flex: 1 1 320px;
+      max-width: 380px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .project-card img, .internship-card img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.7rem;
+    }
+    .btn-primary, .btn-secondary {
+      background: linear-gradient(90deg, #00c6fb 0%, #f3a4ff 100%);
+      color: #fff;
+      border: none;
+      padding: 0.45rem 1.3rem;
+      margin-top: 0.8rem;
+      border-radius: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .btn-secondary {
+      background: linear-gradient(90deg, #f3a4ff 0%, #00c6fb 100%);
+    }
+    .cert-card {
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 380px;
+      padding-bottom: 1rem;
+    }
+    .education-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .footer-icons {
+      margin-bottom: 0.5rem;
+    }
+    .footer-icons a, .footer-icons span {
+      margin: 0 0.7rem;
+      color: #fff;
+      font-size: 1.7rem;
+      transition: color 0.2s;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+    .footer-icons a:hover { color: #f3a4ff; }
+    footer {
+      background: #122344;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 0 1rem 0;
+      margin-top: 3rem;
+    }
+    .footer-text { font-size: 1rem; opacity: 0.8; }
+    @media (max-width: 900px) {
+      .skills-grid, .projects-grid, .internships-grid, .certifications-grid {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      section { padding: 1.2rem; }
+    }
+    /* Internship details show/hide fix */
+    .internship-details {
+      display: none;
+      margin-top: 0.5rem;
+      background: #e2f0fd;
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      font-size: 0.97rem;
+    }
+    .internship-card.active .internship-details {
+      display: block;
+    }
+  </style>
+  <script>
+    // Internship details expand/collapse fix (only one shows at a time, no blank space)
+    function showInternshipDetails(idx) {
+      document.querySelectorAll('.internship-card').forEach((el, i) => {
+        if (i === idx) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+    }
+    function hideInternshipDetails(idx) {
+      document.querySelectorAll('.internship-card')[idx].classList.remove('active');
+    }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Syed Hur Abbas Naqvi</h1>
+    <div class="portfolio-title">Driving Decisions with Data | Insight-Driven Analytics</div>
+    <div class="portfolio-links">
+      <a href="mailto:syedhurabbasnaqvi@gmail.com" target="_blank"><i class="fa fa-envelope"></i> Gmail</a>
+      <a href="https://linkedin.com/in/syedhurabbasnaqvi" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/hurabbas05" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+      <a href="tel:+923036098700"><i class="fa fa-phone"></i> +92 3036098700</a>
+      <span><i class="fa fa-map-marker"></i> Pakistan</span>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <!-- Remove CV link if you don't want it -->
+    </nav>
+  </header>
 
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="portfolio-about">
+      Data Analyst with a strong grasp of turning raw data into clear, actionable insights. Skilled in data visualization, reporting, and analytics, with added perspective from clinical experience. Adept at uncovering trends and translating complex information into practical recommendations. Focused on driving smart decisions in fast-paced, growth-oriented teams.
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skills-category">
+        <h3>Languages</h3>
+        <div class="skills-list">
+          <span class="skill-badge">Python (Jupyter Notebook)</span>
+          <span class="skill-badge">Pandas</span>
+          <span class="skill-badge">NumPy</span>
+          <span class="skill-badge">Scikit-learn</span>
+        </div>
+      </div>
+      <div class="skills-category">
+        <h3>Data Visualization</h3>
+        <div class="skills-list">
+          <span class="skill-badge">Power BI</span>
+          <span class="skill-badge">Tableau</span>
+          <span class="skill-badge">Matplotlib</span>
+          <span class="skill-badge">Seaborn</span>
+          <span class="skill-badge">MS Excel (Advanced)</span>
+        </div>
+      </div>
+      <div class="skills-category">
+        <h3>Databases</h3>
+        <div class="skills-list">
+          <span class="skill-badge">MySQL</span>
+        </div>
+      </div>
+      <div class="skills-category">
+        <h3>Data Analytics</h3>
+        <div class="skills-list">
+          <span class="skill-badge">Statistical Testing</span>
+          <span class="skill-badge">Regression Analysis</span>
+          <span class="skill-badge">Hypothesis Testing</span>
+          <span class="skill-badge">ETL</span>
+        </div>
+      </div>
+      <div class="skills-category">
+        <h3>Others</h3>
+        <div class="skills-list">
+          <span class="skill-badge">Project Management</span>
+          <span class="skill-badge">Jira</span>
+          <span class="skill-badge">Canva</span>
+          <span class="skill-badge">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects (unchanged, keep your original layout/links/images) -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="assets/loan-default.jpg" alt="Loan Default Risk Analysis">
+        <div>
+          <h3>Loan Default Risk Analysis</h3>
+          <p>Data-driven loan default risk analysis using Python, Pandas, and Matplotlib.</p>
+          <a href="https://github.com/hurabbas05/loan-default-analysis" target="_blank" class="btn-primary">View Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internships (Read More bug fixed!) -->
+  <section id="internships">
+    <h2>Internships</h2>
+    <div class="internships-grid">
+      <div class="internship-card">
+        <img src="assets/glimpse.jpg" alt="Marketing Insights & Innovation Intern – Glimpse">
+        <h3>Marketing Insights & Innovation Intern – Glimpse</h3>
+        <p><strong>Platform:</strong> Excelerate</p>
+        <p><strong>Duration:</strong> June – July 2025</p>
+        <p><strong>Location:</strong> Remote | Dubai, UAE</p>
+        <button class="btn-primary" onclick="showInternshipDetails(0)">Read More</button>
+        <div class="internship-details">
+          <button class="btn-secondary" onclick="hideInternshipDetails(0)">Hide Details</button>
+          <ul>
+            <li>Revived Glimpse's social media presence by leading a 4-week digital campaign strategy tailored for the university market across Instagram & LinkedIn.</li>
+            <li>Conducted in-depth competitor analysis and audience research to craft trend-driven content calendars, optimized visuals, and platform-specific engagement.</li>
+            <li>Launched influencer outreach & interactive campaigns (polls, giveaways, stories), helping position Glimpse as a go-to travel merchandising partner.</li>
+            <li>Analyzed content performance using reach, engagement, and growth metrics to shape next-month’s marketing roadmap with data-backed decisions.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="internship-card">
+        <img src="assets/ai-data.jpg" alt="AI-Powered Data Insights Intern – Excelerate">
+        <h3>AI-Powered Data Insights Intern – Excelerate</h3>
+        <p><strong>Platform:</strong> Excelerate</p>
+        <p><strong>Duration:</strong> June – July 2025</p>
+        <p><strong>Location:</strong> Remote | Global</p>
+        <button class="btn-primary" onclick="showInternshipDetails(1)">Read More</button>
+        <div class="internship-details">
+          <button class="btn-secondary" onclick="hideInternshipDetails(1)">Hide Details</button>
+          <ul>
+            <li>Collaborated with cross-functional AI teams to deliver actionable insights for global clients.</li>
+            <li>Designed and implemented machine learning models to solve real-world business problems.</li>
+            <li>Presented findings to stakeholders, driving strategic decisions with data-driven recommendations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications (text updated as requested!) -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certifications-grid">
+      <div class="cert-card">
+        <h3>Data Analysis Certificate</h3>
+        <p><strong>Institute:</strong> Institute of Emerging Careers</p>
+        <p>Mastered practical skills in Python, MySQL, Power BI, data wrangling, visualization, and advanced statistics. This course empowered me with all the core portfolio skills used in real-world analytics projects.</p>
+      </div>
+      <div class="cert-card">
+        <h3>AI for Everyone</h3>
+        <p><strong>Institute:</strong> Coursera (by Andrew Ng)</p>
+        <p>Developed a strong understanding of practical AI concepts and ethics, enabling collaboration and leadership in innovative, AI-driven teams and projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education (unchanged!) -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-card">
+      <h3>Pakistan Institute of Ophthalmology, Al-Shifa Trust Eye Hospital – Rawalpindi</h3>
+      <p><em>BSc (Hons) Optometry and Orthoptics</em></p>
+      <p>2023 – Present</p>
+    </div>
+  </section>
+
+  <!-- Footer (official icons, no blank circles!) -->
+  <footer>
+    <div class="footer-icons">
+      <a href="mailto:syedhurabbasnaqvi@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/syedhurabbasnaqvi" target="_blank"><i class="fa fa-linkedin"></i></a>
+      <a href="https://github.com/hurabbas05" target="_blank"><i class="fa fa-github"></i></a>
+      <a href="tel:+923036098700"><i class="fa fa-phone"></i></a>
+      <span><i class="fa fa-map-marker"></i></span>
+    </div>
+    <div class="footer-text">
+      &copy; 2025 Syed Hur Abbas Naqvi — Portfolio powered by GitHub Pages
+    </div>
+  </footer>
+</body>
+</html>
