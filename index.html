@@ -525,24 +525,22 @@
     }
   <script>
   function toggleInternship(btn) {
-    // Find all internship cards
-    var allCards = document.querySelectorAll('.internship-card');
-    allCards.forEach(function(card) {
-      var details = card.querySelector('.internship-details');
-      var button = card.querySelector('.btn-readmore');
-      if (button !== btn) {
-        details.style.display = "none";
-        button.innerText = "Read More";
-      }
-    });
     var card = btn.closest('.internship-card');
     var details = card.querySelector('.internship-details');
-    if (details.style.display === "block") {
-      details.style.display = "none";
-      btn.innerText = "Read More";
-    } else {
+    var isOpen = details.style.display === "block";
+
+    // Close all cards
+    document.querySelectorAll('.internship-details').forEach(function(d) {
+      d.style.display = "none";
+    });
+    document.querySelectorAll('.btn-readmore').forEach(function(b) {
+      b.innerHTML = "Read More";
+    });
+
+    // Open this one if it was closed
+    if (!isOpen) {
       details.style.display = "block";
-      btn.innerText = "Hide Details";
+      btn.innerHTML = '<span style="font-weight:bold;">&#10005;</span> Hide Details';
     }
   }
 </script>
