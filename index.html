@@ -7,7 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to right, #e0f7fa, #fce4ec);
@@ -58,18 +62,18 @@
       margin: auto;
       padding: 2rem 1rem;
     }
-    .about-box {
-      background-color: #e3f2fd;
-      padding: 2rem;
-      border-left: 8px solid #0284c7;
-      border-radius: 10px;
-    }
     h2 {
       font-size: 1.8rem;
       margin-bottom: 1.2rem;
       color: #1f2937;
       border-left: 5px solid #0284c7;
       padding-left: 0.7rem;
+    }
+    .about-box {
+      background-color: #e3f2fd;
+      padding: 2rem;
+      border-left: 8px solid #0284c7;
+      border-radius: 10px;
     }
     .skills .badge {
       background-color: #bbdefb;
@@ -85,39 +89,43 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
-    .project-card, .internship-card {
+    .card {
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
       transition: transform 0.3s ease;
     }
-    .project-card:hover, .internship-card:hover {
+    .card:hover {
       transform: scale(1.02);
     }
-    .project-card img, .internship-card img {
+    .card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
-    .project-card-content, .internship-card-content {
+    .card-content {
       padding: 1.2rem;
     }
-    .project-card h3, .internship-card h3 {
+    .card h3 {
       margin-bottom: 0.6rem;
       font-size: 1.4rem;
     }
-    .project-card p, .internship-card p {
+    .card p {
       margin-bottom: 1rem;
     }
-    .project-card a, .internship-card a {
+    .card a {
       background-color: #0284c7;
       color: white;
       padding: 0.5rem 1rem;
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
-      margin-right: 10px;
+      display: inline-block;
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
     }
     footer {
       background-color: #0f172a;
@@ -126,9 +134,9 @@
       padding: 2rem;
       font-size: 0.95rem;
     }
-    footer .footer-links a {
-      margin: 0 10px;
+    footer a {
       color: white;
+      margin: 0 10px;
       font-size: 1.2rem;
     }
   </style>
@@ -165,51 +173,65 @@
     </div>
   </section>
 
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span class="badge">Python</span>
-      <span class="badge">Pandas</span>
-      <span class="badge">NumPy</span>
-      <span class="badge">Seaborn</span>
-      <span class="badge">Matplotlib</span>
-      <span class="badge">Scikit-learn</span>
-      <span class="badge">MS Excel</span>
-      <span class="badge">Google Sheets</span>
-      <span class="badge">SQL</span>
-      <span class="badge">PowerPoint</span>
-      <span class="badge">Canva</span>
-    </div>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Projects</h2>
+  <section id="internships" class="section">
+    <h2>Internships</h2>
     <div class="grid-2">
-      <div class="project-card">
-        <img src="assets/ded_thumbnail.jpg" alt="DED Project">
-        <div class="project-card-content">
-          <h3>Dry Eye Disease Analysis</h3>
-          <p>360° analysis of DED risk factors, visualization, and prediction.</p>
-          <a href="#">View More</a>
+      <div class="card">
+        <img src="assets/glimpse.jpg" alt="Glimpse Internship">
+        <div class="card-content">
+          <h3>Marketing Intern – Glimpse</h3>
+          <p>Excelerate | Remote | Dubai/UAE | June – July 2025</p>
+          <details>
+            <summary>Read More</summary>
+            <p>Revived Glimpse’s social presence via a 4-week digital campaign. Conducted audience research, launched influencer outreach, and analyzed content performance using engagement metrics.</p>
+          </details>
         </div>
       </div>
-      <div class="project-card">
-        <img src="assets/loan_default.jpg" alt="Loan Project">
-        <div class="project-card-content">
-          <h3>Loan Default Risk Analysis</h3>
-          <p>Analyzed 32,000+ loans, predictive model with 97% accuracy.</p>
-          <a href="#">View More</a>
+
+      <div class="card">
+        <img src="assets/ai_data_insights.jpg" alt="AI Internship">
+        <div class="card-content">
+          <h3>AI Data Insights Intern</h3>
+          <p>Excelerate | Remote | Dubai/UAE | June – July 2025</p>
+          <details>
+            <summary>Read More</summary>
+            <p>Analyzed engagement data to detect patterns and reduce churn. Built predictive models and a prototype recommendation engine. Delivered insights to improve student retention rates.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/data_visualization.jpg" alt="Visualization Internship">
+        <div class="card-content">
+          <h3>Data Visualization Intern</h3>
+          <p>Excelerate | Remote | GlobalShala | July 2025 – Present</p>
+          <details>
+            <summary>Read More</summary>
+            <p>Collaborating to identify cost-saving campaign strategies and refining visual storytelling using Excel, Canva, and PowerPoint.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/project_management.jpg" alt="PM Internship">
+        <div class="card-content">
+          <h3>Project Management Intern</h3>
+          <p>Excelerate | Remote | July 2025 – Present</p>
+          <details>
+            <summary>Read More</summary>
+            <p>Managing a global event project with a $30K budget. Leading planning, resource allocation, and stakeholder coordination using Gantt charts and collaborative tools.</p>
+          </details>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>📍 Pakistan &nbsp;&nbsp;&nbsp; 📧 syedhur572@gmail.com &nbsp;&nbsp;&nbsp; ☎ +92 303 6098700 &nbsp;&nbsp;&nbsp;
+    <p>
+      📍 Pakistan &nbsp;&nbsp;&nbsp; 📧 syedhur572@gmail.com &nbsp;&nbsp;&nbsp; ☎ +92 303 6098700 &nbsp;&nbsp;&nbsp;
       <a href="https://www.linkedin.com/in/hurabbas05/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </p>
     <p>© 2025 Syed Hur Abbas Naqvi — Portfolio powered by GitHub Pages</p>
   </footer>
 </body>
 </html>
-
