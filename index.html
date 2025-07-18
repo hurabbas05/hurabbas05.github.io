@@ -408,7 +408,7 @@
             <h3>AI-Powered Data Insights Intern – Excelerate</h3>
             <p><strong>Platform:</strong> Excelerate</p>
             <p><strong>Duration:</strong> June – July 2025</p>
-            <p><strong>Location:</strong> Remote | Global</p>
+            <p><strong>Location:</strong> Remote | Dubai, UAE</p>
             <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
             <div class="internship-details">
               <ul>
@@ -429,7 +429,7 @@
             <h3>Data Visualization Intern – GlobalShala</h3>
             <p><strong>Platform:</strong> Excelerate</p>
             <p><strong>Duration:</strong> July 2025 – Present</p>
-            <p><strong>Location:</strong> Remote | Global</p>
+            <p><strong>Location:</strong> Remote | Dubai, UAE</p>
             <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
             <div class="internship-details">
               <ul>
@@ -448,7 +448,7 @@
             <h3>Project Management Intern – Excelerate</h3>
             <p><strong>Platform:</strong> Excelerate</p>
             <p><strong>Duration:</strong> July 2025 – Present</p>
-            <p><strong>Location:</strong> Remote | Global</p>
+            <p><strong>Location:</strong> Remote | Dubai, UAE</p>
             <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
             <div class="internship-details">
               <ul>
@@ -523,26 +523,6 @@
         btn.innerText = "Hide Details";
       }
     }
-  <script>
-  function toggleInternship(btn) {
-    var card = btn.closest('.internship-card');
-    var details = card.querySelector('.internship-details');
-    var isOpen = details.style.display === "block";
-
-    // Close all cards
-    document.querySelectorAll('.internship-details').forEach(function(d) {
-      d.style.display = "none";
-    });
-    document.querySelectorAll('.btn-readmore').forEach(function(b) {
-      b.innerHTML = "Read More";
-    });
-
-    // Open this one if it was closed
-    if (!isOpen) {
-      details.style.display = "block";
-      btn.innerHTML = '<span style="font-weight:bold;">&#10005;</span> Hide Details';
-    }
-  }
-</script>
+  </script>
 </body>
 </html>
