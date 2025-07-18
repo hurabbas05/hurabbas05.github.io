@@ -1,180 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Hur Abbas Naqvi | Data Analyst Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Hur Abbas - Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #fce4ec);
-      color: #1f2937;
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #001f3f;
+      color: #fff;
+      padding: 40px 20px 60px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin: 10px 0;
     }
     nav {
-      background-color: #0f172a;
-      color: white;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav .nav-links {
-      display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 10px;
+      background: #003366;
+      padding: 15px;
     }
     nav a {
       color: white;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
+      padding: 8px 15px;
+      background-color: #0074D9;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
-    header {
-      background-color: #0284c7;
+    nav a:hover {
+      background-color: #005fa3;
+    }
+    .contact-buttons {
+      margin-top: 15px;
+    }
+    .contact-buttons a {
+      margin: 5px;
+      padding: 10px 15px;
+      display: inline-block;
       color: white;
-      text-align: center;
-      padding: 3rem 1rem 2rem 1rem;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
-    header h2 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-    header .contact-buttons a {
-      margin: 0 10px;
-      padding: 6px 12px;
-      background-color: white;
-      color: #0284c7;
-      border-radius: 6px;
+      background-color: #0074D9;
+      border-radius: 5px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 14px;
     }
     .section {
-      max-width: 1100px;
+      padding: 40px 20px;
+      max-width: 1200px;
       margin: auto;
-      padding: 2rem 1rem;
     }
-    .about-box {
-      background-color: #e3f2fd;
-      padding: 2rem;
-      border-left: 8px solid #0284c7;
-      border-radius: 10px;
+    .section h2 {
+      text-align: center;
+      color: #001f3f;
+      margin-bottom: 30px;
     }
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-      color: #1f2937;
-      border-left: 5px solid #0284c7;
-      padding-left: 0.7rem;
-    }
-    .skills .category {
-      margin-bottom: 1.5rem;
-    }
-    .skills .badge {
-      background-color: #bbdefb;
-      color: #0d47a1;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin: 5px;
-    }
-    .grid-2 {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
     }
-    .card, .internship-card, .project-card {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
-    .card:hover, .internship-card:hover {
-      transform: scale(1.02);
-    }
-    .card img, .internship-card img {
+    .card img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
     }
-    .card-content, .internship-card-content, .project-card-content {
-      padding: 1.2rem;
+    .card-content {
+      padding: 15px;
+      flex: 1;
     }
-    .card h3, .internship-card h3, .project-card h3 {
-      margin-bottom: 0.6rem;
-      font-size: 1.4rem;
+    .card h3 {
+      margin-top: 0;
+      color: #003366;
     }
-    .card p, .internship-card p {
-      margin-bottom: 0.8rem;
-    }
-    .card a, .internship-card a {
-      background-color: #0284c7;
-      color: white !important;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
+    .btn {
       display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #0074D9;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
     }
     footer {
-      background-color: #0f172a;
-      color: white;
       text-align: center;
-      padding: 2rem;
-      font-size: 0.95rem;
-    }
-    footer .footer-links a {
-      margin: 0 10px;
+      padding: 30px;
+      background: #001f3f;
       color: white;
-      font-size: 1.2rem;
+    }
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 18px;
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <div><strong>Data Analyst Portfolio</strong></div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#internships">Internships</a>
-      <a href="#certs">Certifications</a>
-      <a href="#education">Education</a>
-      <a href="Syed_Hur_Abbas_Naqvi_CV.pdf" target="_blank">📄 Download CV</a>
-    </div>
-  </nav>
   <header>
-    <h1>Syed Hur Abbas Naqvi</h1>
-    <h2>📊 Driving Decisions with Data | Insight-Driven Analytics</h2>
+    <h1>Data Analyst Portfolio</h1>
+    <p>📊 Driving Decisions with Data | Insight-Driven Analytics</p>
     <div class="contact-buttons">
-      <a href="mailto:syedhur572@gmail.com">📧 Gmail</a>
-      <a href="https://www.linkedin.com/in/hurabbas05/" target="_blank">🔗 LinkedIn</a>
-      <a href="https://github.com/hurabbas05" target="_blank">💻 GitHub</a>
-      <a href="tel:+923036098700">📱 Phone</a>
-      <a href="#">📍 Pakistan</a>
+      <a href="mailto:hurabbasofficial@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://www.linkedin.com/in/hur-abbas-2603/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/hurabbas05" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="tel:+923036098700"><i class="fas fa-phone"></i> Phone</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Pakistan</a>
     </div>
   </header>
 
-<!-- Continue sections exactly as per user content -->
-<!-- Projects, Internships, Certifications, Education, and Footer already follow consistent structure -->
-<!-- I will continue implementing the remaining improvements in the next update -->
-</body>
-</html>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#internships">Internships</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
+    <a href="https://drive.google.com/file/d/1DC3K8RxfSXeyXST5tI2O0FN2eLX--wRv/view?usp=sharing" target="_blank">📄 Download CV</a>
+  </nav>
 
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">I am Hur Abbas, a passionate data analyst skilled in turning complex data into actionable insights. My portfolio showcases practical experience through projects, internships, and certifications focused on real-world data challenges. Explore the sections below to see my work and expertise.</p>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="cards">
+      <div class="card"><div class="card-content"><h3><i class="fab fa-python"></i> Python</h3></div></div>
+      <div class="card"><div class="card-content"><h3><i class="fas fa-database"></i> SQL (MySQL)</h3></div></div>
+      <div class="card"><div class="card-content"><h3><i class="fas fa-chart-line"></i> Power BI</h3></div></div>
+      <div class="card"><div class="card-content"><h3><i class="fab fa-microsoft"></i> Excel</h3></div></div>
+      <div class="card"><div class="card-content"><h3><i class="fas fa-chart-pie"></i> Data Visualization</h3></div></div>
+      <div class="card"><div class="card-content"><h3><i class="fas fa-robot"></i> Machine Learning</h3></div></div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="assets/ded_thumbnail.jpg" alt="Dry Eye Disease">
+        <div class="card-content">
+          <h3>Capstone: Dry Eye Disease</h3>
+          <p>ML project to detect Dry Eye Disease based on ocular data.</p>
+          <a class="btn" href="https://github.com/hurabbas05/Capstone-Dry-Eye-Disease-Project" target="_blank">View Code</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/loan_default.jpg" alt="Loan Default">
+        <div class="card-content">
+          <h3>Loan Default Risk Analysis</h3>
+          <p>EDA and ML-based classification to predict loan default risk.</p>
+          <a class="btn" href="https://github.com/hurabbas05/Loan-Default-Risk-Analysis-Project" target="_blank">View Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Connect with me:</p>
+    <a href="mailto:hurabbasofficial@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/hur-abbas-2603/"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/hurabbas05"><i class="fab fa-github"></i></a>
+    <a href="tel:+923036098700"><i class="fas fa-phone"></i></a>
+    <a href="#"><i class="fas fa-map-marker-alt"></i></a>
+  </footer>
+</body>
+
+</html>
