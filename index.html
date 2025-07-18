@@ -12,68 +12,69 @@
       margin: 0;
       padding: 0;
     }
-    body {
+    html, body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #fce4ec);
+      background: linear-gradient(to bottom right, #f0f4f8, #e0e7ff);
       color: #1f2937;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     nav {
-      background-color: #0f172a;
+      background-color: #1f2937;
       color: white;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-    nav .nav-links {
-      display: flex;
-      gap: 1.5rem;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 600;
     }
-    .contact-icons a {
-      margin-left: 10px;
-      color: white;
-      font-size: 1.2rem;
-    }
     header {
-      background-color: #0284c7;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
       color: white;
       text-align: center;
       padding: 3rem 1rem 2rem 1rem;
     }
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
+    }
+    header p {
+      margin: 0.3rem;
+    }
+    .contact-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.3rem;
     }
     .section {
       max-width: 1100px;
       margin: auto;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
     }
     .about-box {
-      background-color: #e3f2fd;
+      background-color: #ffffffcc;
       padding: 2rem;
-      border-left: 8px solid #0284c7;
+      border-left: 8px solid #0ea5e9;
       border-radius: 10px;
     }
     h2 {
       font-size: 1.8rem;
       margin-bottom: 1.2rem;
       color: #1f2937;
-      border-left: 5px solid #0284c7;
+      border-left: 5px solid #3b82f6;
       padding-left: 0.7rem;
     }
     .skills .badge {
-      background-color: #bbdefb;
-      color: #0d47a1;
+      background-color: #dbeafe;
+      color: #1d4ed8;
       border-radius: 999px;
       padding: 6px 12px;
       font-size: 0.9rem;
@@ -111,55 +112,59 @@
       margin-bottom: 1rem;
     }
     .project-card a {
-      background-color: #0284c7;
+      background-color: #3b82f6;
       color: white;
       padding: 0.5rem 1rem;
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
-      margin-right: 10px;
     }
     footer {
-      background-color: #0f172a;
+      background-color: #1f2937;
       color: white;
       text-align: center;
       padding: 2rem;
       font-size: 0.95rem;
     }
-    footer .footer-links a {
+    footer .contact-icons a {
       margin: 0 10px;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
   </style>
 </head>
 <body>
   <nav>
-    <div><strong>Syed Hur Abbas Naqvi</strong></div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#internships">Internships</a>
-      <a href="#certs">Certifications</a>
-      <a href="#education">Education</a>
-      <a href="Syed_Hur_Abbas_Naqvi_CV.pdf" target="_blank">📄 Resume</a>
-      <a href="mailto:syedhur572@gmail.com" title="Gmail"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/hurabbas05/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="tel:+923036098700" title="Phone"><i class="fas fa-phone-alt"></i></a>
-    </div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#internships">Internships</a>
+    <a href="#certs">Certifications</a>
+    <a href="#education">Education</a>
+    <a href="Syed_Hur_Abbas_Naqvi_CV.pdf" target="_blank">📄 Download CV – Syed Hur Abbas Naqvi</a>
   </nav>
 
   <header>
-    <h1>Data Analyst Portfolio</h1>
-    <p>📊 Driving Decisions with Data | Insight-Driven Analytics</p>
+    <h1>Syed Hur Abbas Naqvi</h1>
+    <p>📊 Data Analyst | Insight-Driven Decision Making</p>
+    <p class="contact-icons">
+      <a href="mailto:syedhur572@gmail.com" title="Gmail"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/hurabbas05/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+923036098700" title="Phone"><i class="fas fa-phone-alt"></i></a>
+      <span title="Location"><i class="fas fa-map-marker-alt"></i> Pakistan</span>
+    </p>
   </header>
 
-  <!-- Rest of content remains unchanged, continue using previous structure -->
+  <!-- The rest of the sections: About, Skills, Projects, Internships, etc. follow -->
 
   <footer>
-    <p>📍 Pakistan &nbsp;&nbsp;&nbsp; 📧 syedhur572@gmail.com &nbsp;&nbsp;&nbsp; ☎ +92 303 6098700 &nbsp;&nbsp;&nbsp;
-      <a href="https://www.linkedin.com/in/hurabbas05/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <p>
+      <span class="contact-icons">
+        <a href="mailto:syedhur572@gmail.com" title="Gmail"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/hurabbas05/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="tel:+923036098700" title="Phone"><i class="fas fa-phone-alt"></i></a>
+        <span title="Location"><i class="fas fa-map-marker-alt"></i> Pakistan</span>
+      </span>
     </p>
     <p>© 2025 Syed Hur Abbas Naqvi — Portfolio powered by GitHub Pages</p>
   </footer>
