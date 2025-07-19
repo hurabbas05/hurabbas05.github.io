@@ -265,13 +265,17 @@
       gap: 2rem;
     }
     .internship-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
       gap: 2rem;
     }
     @media (max-width: 900px) {
-      .internship-row { grid-template-columns: 1fr; }
-    }
+  .internship-card {
+    width: 100% !important;
+  }
+}
     .project-card {
       min-height: 210px;
       justify-content: flex-start;
