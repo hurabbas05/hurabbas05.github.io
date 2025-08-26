@@ -116,9 +116,15 @@
       letter-spacing: 1px;
     }
     header .subtitle {
-      font-size: 1.2rem;
+      font-size: 1.13rem;
       color: #f1f5f9;
       margin-bottom: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      word-break: break-word;
     }
     header .portfolio-title {
       position: absolute;
@@ -155,6 +161,7 @@
         font-size: 1rem;
         margin-bottom: 0.7rem;
         color: #f1f5f9;
+        gap: 4px;
       }
       .contact-info {
         margin-top: 1.2rem;
@@ -450,7 +457,9 @@
   <header>
     <span class="portfolio-title">Data Analyst Portfolio</span>
     <h1>SYED HUR ABBAS NAQVI</h1>
-    <div class="subtitle">📊 Driving Decisions with Data | Insight-Driven Analytics</div>
+    <div class="subtitle">
+      <i class="fa-solid fa-chart-column"></i> Data Analytics for Smarter Decisions
+    </div>
     <div class="contact-info">
       <a class="btn-contact" href="mailto:syedhur572@gmail.com" title="Gmail">Gmail</a>
       <a class="btn-contact" href="https://www.linkedin.com/in/hurabbas05/" target="_blank" title="LinkedIn">LinkedIn</a>
@@ -521,7 +530,7 @@
     <div class="grid-2">
       <!-- RetailX Project -->
       <div class="card project-card">
-        <img src="assets/retailx_dashboard.jpg" alt="RetailX Revenue Insights" onerror="this.src='https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=800&q=80';">
+        <img src="assets/retailx_dashboard.jpg" alt="RetailX Revenue Insights">
         <div class="project-card-content">
           <h3>RetailX Data Analytics: Revenue Insights & Visualization</h3>
           <div class="tools-row">
@@ -530,7 +539,7 @@
             <i class="fa-solid fa-file-lines tool-icon" title="Google Docs"></i>
           </div>
           <p>Cleaned & transformed RetailX sales data, performed revenue and return analysis using Python, and built visualizations & strategy recommendations for optimized business growth.</p>
-          <button class="btn-readmore" onclick="toggleProject(this)">Read More</button>
+          <button class="btn-readmore" onclick="toggleProject(event, this)">Read More</button>
           <div class="project-details">
             <ul>
               <li>Cleaned & transformed RetailX sales data (removed duplicates, handled missing values, fixed formats) to prepare analysis-ready dataset.</li>
@@ -543,7 +552,7 @@
       </div>
       <!-- Loan Default Project -->
       <div class="card project-card">
-        <img src="assets/loan_default.jpg" alt="Loan Project" onerror="this.src='https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80';">
+        <img src="assets/loan_default.jpg" alt="Loan Project">
         <div class="project-card-content">
           <h3>Loan Default Risk Analysis</h3>
           <div class="tools-row">
@@ -555,7 +564,7 @@
             <i class="fa-solid fa-brain tool-icon" title="Scikit-learn"></i>
           </div>
           <p>End-to-end analysis of loan default risk with data cleaning, exploratory data analysis, visualizations, and machine learning based prediction.</p>
-          <button class="btn-readmore" onclick="toggleProject(this)">Read More</button>
+          <button class="btn-readmore" onclick="toggleProject(event, this)">Read More</button>
           <div class="project-details">
             <ul>
               <li>Analyzed 32,000+ loan records to uncover default risk factors using statistical tests & EDA.</li>
@@ -571,7 +580,7 @@
     <div class="grid-2" style="margin-top:2rem;">
       <!-- Capstone Dry Eye Disease Project -->
       <div class="card project-card">
-        <img src="assets/ded_thumbnail.jpg" alt="DED Project" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80';">
+        <img src="assets/ded_thumbnail.jpg" alt="DED Project">
         <div class="project-card-content">
           <h3>Capstone Dry Eye Disease Project</h3>
           <div class="tools-row">
@@ -581,7 +590,7 @@
             <i class="fa-solid fa-palette tool-icon" title="Canva"></i>
           </div>
           <p>In-depth analysis of Dry Eye Disease using patient history, sleep, and lifestyle data to uncover trends and risk factors. A data-driven medical insight project using Excel and MySQL.</p>
-          <button class="btn-readmore" onclick="toggleProject(this)">Read More</button>
+          <button class="btn-readmore" onclick="toggleProject(event, this)">Read More</button>
           <div class="project-details">
             <ul>
               <li>Transformed raw patient data into strategic insights, uncovering lifestyle-driven risk factors for Dry Eye Disease using advanced analytics.</li>
@@ -601,7 +610,7 @@
       <div class="experience-row">
         <!-- EXP 1 -->
         <div class="experience-card">
-          <img src="assets/business_insights.jpg" alt="Business Insights & Reporting" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80';">
+          <img src="assets/business_insights.jpg" alt="Business Insights & Reporting">
           <div class="experience-card-content">
             <h3>Data Analyst – Business Insights & Reporting</h3>
             <p><strong>Platform:</strong> Excelerate</p>
@@ -613,7 +622,7 @@
               <i class="fa-solid fa-chart-bar tool-icon" title="Power BI"></i>
               <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
             </div>
-            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <button class="btn-readmore" onclick="toggleExperience(event, this)">Read More</button>
             <div class="experience-details">
               <ul>
                 <li>Cleaned, transformed, and analyzed data using Python, SQL, and Excel, delivering accurate reports for stakeholders.</li>
@@ -627,7 +636,7 @@
         </div>
         <!-- EXP 2 -->
         <div class="experience-card">
-          <img src="assets/marketing_insights.jpg" alt="Marketing Insights & Visualization" onerror="this.src='https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80';">
+          <img src="assets/marketing_insights.jpg" alt="Marketing Insights & Visualization">
           <div class="experience-card-content">
             <h3>Data Analyst – Marketing Insights & Visualization</h3>
             <p><strong>Platform:</strong> Globalshala</p>
@@ -638,7 +647,7 @@
               <i class="fa-solid fa-chart-bar tool-icon" title="Power BI"></i>
               <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
             </div>
-            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <button class="btn-readmore" onclick="toggleExperience(event, this)">Read More</button>
             <div class="experience-details">
               <ul>
                 <li>Cleaned, analyzed, and visualized digital marketing campaign data (Excel, Power BI, Python) to deliver insights on ROI and ad performance (Reach, CTR, CPC, Impressions).</li>
@@ -655,7 +664,7 @@
       <div class="experience-row">
         <!-- EXP 3 -->
         <div class="experience-card">
-          <img src="assets/elevvo_internship.jpg" alt="Data Analytics Internship" onerror="this.src='https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=800&q=80';">
+          <img src="assets/elevvo_internship.jpg" alt="Data Analytics Internship">
           <div class="experience-card-content">
             <h3>Data Analytics Internship</h3>
             <p><strong>Platform:</strong> Elevvo Pathways - Data Analyst</p>
@@ -667,7 +676,7 @@
               <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
               <i class="fa-solid fa-chart-bar tool-icon" title="Power BI"></i>
             </div>
-            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <button class="btn-readmore" onclick="toggleExperience(event, this)">Read More</button>
             <div class="experience-details">
               <ul>
                 <li>Completed a 1-month Data Analytics Track with focus on real-world projects and case studies.</li>
@@ -681,7 +690,7 @@
         </div>
         <!-- EXP 4 -->
         <div class="experience-card">
-          <img src="assets/global_project_management.jpg" alt="Project Management Global Internship" onerror="this.src='https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80';">
+          <img src="assets/project_management.jpg" alt="Project Management Global Internship">
           <div class="experience-card-content">
             <h3>Project Management Global Internship</h3>
             <p><strong>Platform:</strong> Excelerate - Project Manager</p>
@@ -692,7 +701,7 @@
               <i class="fa-solid fa-palette tool-icon" title="Canva"></i>
               <i class="fa-solid fa-table tool-icon" title="Google Sheets"></i>
             </div>
-            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <button class="btn-readmore" onclick="toggleExperience(event, this)">Read More</button>
             <div class="experience-details">
               <ul>
                 <li>Planned a global experiential learning event, developing the Project Charter, Work Breakdown Structure, and team proposal aligned with a $30,000 budget and 6-month timeline.</li>
@@ -805,11 +814,12 @@
       navLinks.classList.toggle("open");
     }
     // Project details toggle: only one card toggles at a time per row
-    function toggleProject(btn) {
+    function toggleProject(event, btn) {
+      event.stopPropagation();
       var card = btn.closest('.project-card');
       var parentRow = card.parentNode;
       parentRow.querySelectorAll('.project-card .project-details').forEach(function(d) {
-        if (!d.contains(btn)) d.style.display = "none";
+        if (d !== card.querySelector('.project-details')) d.style.display = "none";
       });
       parentRow.querySelectorAll('.project-card .btn-readmore').forEach(function(b) {
         if (b !== btn) { b.innerText = "Read More"; }
@@ -824,11 +834,12 @@
       }
     }
     // Experience details toggle: only one card toggles at a time per row
-    function toggleExperience(btn) {
+    function toggleExperience(event, btn) {
+      event.stopPropagation();
       var card = btn.closest('.experience-card');
       var parentRow = card.parentNode;
       parentRow.querySelectorAll('.experience-card .experience-details').forEach(function(d) {
-        if (!d.contains(btn)) d.style.display = "none";
+        if (d !== card.querySelector('.experience-details')) d.style.display = "none";
       });
       parentRow.querySelectorAll('.experience-card .btn-readmore').forEach(function(b) {
         if (b !== btn) { b.innerText = "Read More"; }
