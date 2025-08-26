@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Syed Hur Abbas Naqvi | Data Analyst Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tool Icons CDN (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -41,6 +43,40 @@
       transition: color 0.2s;
     }
     nav a:hover { color: #7c3aed; }
+    @media (max-width: 900px) {
+      nav .nav-links {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+      nav .nav-title {
+        margin-bottom: 0.7rem;
+      }
+    }
+    @media (max-width: 600px) {
+      nav .nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.7rem 1.2rem;
+        margin-top: 0.8rem;
+        width: 100%;
+      }
+      nav {
+        padding: 1rem 0.4rem;
+      }
+      nav .nav-title {
+        font-size: 1.2rem;
+      }
+      nav .nav-links a {
+        font-size: 1rem;
+        padding: 0.3rem 0.2rem;
+      }
+    }
+
     header {
       background-color: #102a54;
       color: white;
@@ -165,7 +201,7 @@
       .grid-2 { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
     }
-    .card, .internship-card, .project-card {
+    .card, .internship-card, .project-card, .experience-card, .cert-card {
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.09);
@@ -176,26 +212,26 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    .card img, .internship-card img {
+    .card img, .internship-card img, .experience-card img, .project-card img {
       width: 100%;
       height: 210px;
       object-fit: cover;
       background: #e3f2fd;
       display: block;
     }
-    .card-content, .internship-card-content, .project-card-content {
+    .card-content, .internship-card-content, .project-card-content, .experience-card-content, .cert-card-content {
       padding: 1.25rem 1.1rem;
     }
-    .card h3, .internship-card h3, .project-card h3 {
+    .card h3, .internship-card h3, .project-card h3, .experience-card h3, .cert-card h3 {
       margin-bottom: 0.5rem;
       font-size: 1.2rem;
       color: #0f172a;
       font-weight: 700;
     }
-    .card p, .internship-card p, .project-card p {
+    .card p, .internship-card p, .project-card p, .experience-card p, .cert-card p {
       margin-bottom: 0.7rem;
     }
-    .card a, .internship-card .btn-readmore {
+    .card a, .internship-card .btn-readmore, .experience-card .btn-readmore, .project-card .btn-readmore {
       background: linear-gradient(90deg, #0ea5e9 60%, #f472b6 100%);
       color: white;
       padding: 0.6rem 1.4rem;
@@ -213,34 +249,10 @@
       cursor: pointer;
       box-shadow: 0 2px 10px rgba(40,60,90,0.10);
     }
-    .card a:hover, .internship-card .btn-readmore:hover {
+    .card a:hover, .internship-card .btn-readmore:hover, .experience-card .btn-readmore:hover, .project-card .btn-readmore:hover {
       background: linear-gradient(90deg, #7c3aed 60%, #0ea5e9 100%);
       color: #fff;
     }
-    /* ---- ADD THIS FOR PROJECT READ MORE BUTTON STYLE ---- */
-    .project-card .btn-readmore {
-      background: linear-gradient(90deg, #0ea5e9 60%, #f472b6 100%);
-      color: white;
-      padding: 0.6rem 1.4rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      margin-right: 10px;
-      margin-top: 5px;
-      transition: background 0.22s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.05rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(40,60,90,0.10);
-    }
-    .project-card .btn-readmore:hover {
-      background: linear-gradient(90deg, #7c3aed 60%, #0ea5e9 100%);
-      color: #fff;
-    }
-    /* ---- END ADDITION ---- */
     .btn-github {
       display: inline-block;
       background: linear-gradient(90deg, #24292e 60%, #0ea5e9 100%);
@@ -259,19 +271,19 @@
       background: #0ea5e9;
       color: #fff;
     }
-    .internship-cards-flex {
+    .internship-cards-flex, .experience-cards-flex, .cert-cards-flex {
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
-    .internship-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
+    .internship-row, .experience-row, .cert-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
     @media (max-width: 900px) {
-  .internship-row { grid-template-columns: 1fr; }
-}
+      .internship-row, .experience-row, .cert-row { grid-template-columns: 1fr; }
+    }
     .project-card {
       min-height: 210px;
       justify-content: flex-start;
@@ -302,7 +314,7 @@
     .footer-contact-info .btn-contact {
       margin-bottom: 0 !important;
     }
-    .internship-details, .project-details {
+    .internship-details, .project-details, .experience-details {
       display: none;
       font-size: 0.99rem;
       margin-top: 0.5rem;
@@ -311,6 +323,40 @@
       border-radius: 9px;
       padding: 1rem;
       box-shadow: 0 1px 4px rgba(40,60,90,0.07);
+    }
+    /* Tool Icon Row */
+    .tools-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 12px;
+      margin-top: 2px;
+      flex-wrap: wrap;
+    }
+    .tool-icon {
+      font-size: 1.25rem;
+      color: #0ea5e9;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 2px;
+    }
+    .cert-view-btn {
+      background: linear-gradient(90deg, #0ea5e9 60%, #f472b6 100%);
+      color: white;
+      border-radius: 8px;
+      padding: 0.45rem 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.22s;
+      display: inline-block;
+      margin-top: 10px;
+      border: none;
+      font-size: 1.01rem;
+      box-shadow: 0 2px 10px rgba(40,60,90,0.10);
+    }
+    .cert-view-btn:hover {
+      background: linear-gradient(90deg, #7c3aed 60%, #0ea5e9 100%);
+      color: #fff;
     }
   </style>
 </head>
@@ -321,7 +367,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#internships">Internships</a>
+      <a href="#experience">Experience</a>
       <a href="#certs">Certifications</a>
       <a href="#education">Education</a>
       <a href="https://www.canva.com/design/DAGwzMrgFv8/Oij1AH_wMaalO1tC8N6hoA/view?utm_content=DAGwzMrgFv8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h345c0c569d" target="_blank">📄 View My CV</a>
@@ -400,10 +446,67 @@
   <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="grid-2">
+      <!-- RetailX Project -->
+      <div class="card project-card">
+        <img src="assets/retailx_dashboard.jpg" alt="RetailX Revenue Insights">
+        <div class="project-card-content">
+          <h3>RetailX Data Analytics: Revenue Insights & Visualization</h3>
+          <div class="tools-row">
+            <i class="fab fa-python tool-icon" title="Python"></i>
+            <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
+            <i class="fa-solid fa-file-lines tool-icon" title="Google Docs"></i>
+          </div>
+          <p>Cleaned & transformed RetailX sales data, performed revenue and return analysis using Python, and built visualizations & strategy recommendations for optimized business growth.</p>
+          <button class="btn-readmore" onclick="toggleProject(this)">Read More</button>
+          <div class="project-details">
+            <ul>
+              <li>Cleaned & transformed RetailX sales data (removed duplicates, handled missing values, fixed formats) to prepare analysis-ready dataset.</li>
+              <li>Performed revenue & return analysis using Python (EDA, KPI tracking, correlation) to identify top-performing regions, categories & payment-return trends.</li>
+              <li>Built visualizations & SWOT-based strategy recommendations to highlight growth opportunities, reduce return rates & support revenue optimization.</li>
+            </ul>
+            <a class="btn-github" href="https://github.com/hurabbas05/RetailX-Revenue-Insights-Strategy-Project" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+      <!-- Loan Default Project -->
+      <div class="card project-card">
+        <img src="assets/loan_default.jpg" alt="Loan Project">
+        <div class="project-card-content">
+          <h3>Loan Default Risk Analysis</h3>
+          <div class="tools-row">
+            <i class="fab fa-python tool-icon" title="Python"></i>
+            <i class="fa-solid fa-database tool-icon" title="Pandas"></i>
+            <i class="fa-solid fa-database tool-icon" title="NumPy"></i>
+            <i class="fa-solid fa-chart-bar tool-icon" title="Matplotlib"></i>
+            <i class="fa-solid fa-chart-line tool-icon" title="Seaborn"></i>
+            <i class="fa-solid fa-brain tool-icon" title="Scikit-learn"></i>
+          </div>
+          <p>End-to-end analysis of loan default risk with data cleaning, exploratory data analysis, visualizations, and machine learning based prediction.</p>
+          <button class="btn-readmore" onclick="toggleProject(this)">Read More</button>
+          <div class="project-details">
+            <ul>
+              <li>Analyzed 32,000+ loan records to uncover default risk factors using statistical tests & EDA.</li>
+              <li>Built a predictive model with feature engineering & ML (Random Forest, 97% accuracy, 91% recall on defaulters).</li>
+              <li>Delivered actionable insights on age, income, interest rates & loan grade, helping optimize loan approval & minimize risk.</li>
+              <li>Designed interactive visuals & a presentation to communicate findings clearly to stakeholders.</li>
+            </ul>
+            <a class="btn-github" href="https://github.com/hurabbas05/Loan-Default-Risk-Analysis-Project" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:2rem;">
+      <!-- Capstone Dry Eye Disease Project -->
       <div class="card project-card">
         <img src="assets/ded_thumbnail.jpg" alt="DED Project">
         <div class="project-card-content">
           <h3>Capstone Dry Eye Disease Project</h3>
+          <div class="tools-row">
+            <i class="fa-solid fa-database tool-icon" title="MySQL"></i>
+            <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
+            <i class="fa-solid fa-file-powerpoint tool-icon" title="PowerPoint"></i>
+            <i class="fa-solid fa-palette tool-icon" title="Canva"></i>
+          </div>
           <p>In-depth analysis of Dry Eye Disease using patient history, sleep, and lifestyle data to uncover trends and risk factors. A data-driven medical insight project using Excel and MySQL.</p>
           <button class="btn-readmore" onclick="toggleProject(this)">Read More</button>
           <div class="project-details">
@@ -416,111 +519,115 @@
           </div>
         </div>
       </div>
-      <div class="card project-card">
-        <img src="assets/loan_default.jpg" alt="Loan Project">
-        <div class="project-card-content">
-          <h3>Loan Default Risk Analysis</h3>
-          <p>End-to-end analysis of loan default risk with data cleaning, exploratory data analysis, visualizations, and machine learning based prediction.</p>
-          <button class="btn-readmore" onclick="toggleProject(this)">Read More</button>
-          <div class="project-details">
-            <ul>
-              <li>Analyzed 32,000+ loan records to uncover key default risk drivers using statistical tests and data visualization.</li>
-              <li>Designed a predictive pipeline with feature engineering, EDA, and modeling; Random Forest achieved 97% accuracy, catching 91% actual defaulters.</li>
-              <li>Presented actionable insights (via age, income, interest, loan grade) to improve loan approval strategies and reduce risk exposure.</li>
-            </ul>
-            <a class="btn-github" href="https://github.com/hurabbas05/Loan-Default-Risk-Analysis-Project" target="_blank">View on GitHub</a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section id="internships" class="section">
-    <h2>Internships</h2>
-    <div class="internship-cards-flex">
-      <div class="internship-row">
-        <!-- Internship 1 -->
-        <div class="internship-card">
-          <img src="assets/glimpse_marketing.jpg" alt="Glimpse Marketing Internship">
-          <div class="internship-card-content">
-            <h3>Marketing Insights & Innovation Intern – Glimpse</h3>
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="experience-cards-flex">
+      <div class="experience-row">
+        <!-- EXP 1 -->
+        <div class="experience-card">
+          <img src="assets/business_insights.jpg" alt="Business Insights & Reporting">
+          <div class="experience-card-content">
+            <h3>Data Analyst – Business Insights & Reporting</h3>
             <p><strong>Platform:</strong> Excelerate</p>
-            <p><strong>Role:</strong> Marketing Intern</p>
-            <p><strong>Duration:</strong> June – July 2025</p>
+            <p><strong>Duration:</strong> Jan 2025 - Present</p>
             <p><strong>Location:</strong> Remote | Dubai, UAE</p>
-            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
-            <div class="internship-details">
+            <div class="tools-row">
+              <i class="fab fa-python tool-icon" title="Python"></i>
+              <i class="fa-solid fa-database tool-icon" title="SQL"></i>
+              <i class="fa-solid fa-chart-bar tool-icon" title="Power BI"></i>
+              <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
+            </div>
+            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <div class="experience-details">
               <ul>
-                <li>Revived Glimpse’s social media presence by leading a 4-week digital campaign strategy tailored for the university market across Instagram & LinkedIn.</li>
-                <li>Conducted in-depth competitor analysis and audience research to craft trend-driven content calendars, optimized visuals, and platform-specific engagement.</li>
-                <li>Launched influencer outreach & interactive campaigns (polls, giveaways, stories), helping position Glimpse as a go-to travel merchandising partner.</li>
-                <li>Analyzed content performance using reach, engagement, and growth metrics to shape next-month’s marketing roadmap with data-backed decisions.</li>
+                <li>Cleaned, transformed, and analyzed data using Python, SQL, and Excel, delivering accurate reports for stakeholders.</li>
+                <li>Performed exploratory data analysis (EDA) to identify business trends and support data-driven decisions.</li>
+                <li>Developed and deployed interactive dashboards in Power BI & Excel, enhancing KPI monitoring for stakeholders.</li>
+                <li>Translated complex datasets into clear, actionable insights, driving improved marketing and operational strategies.</li>
               </ul>
-              <a class="btn-github" href="https://github.com/hurabbas05/Glimpse-Marketing-Internship" target="_blank">View on GitHub</a>
+              <a class="btn-github" href="https://github.com/hurabbas05/Data-Analyst-Business-Insights-Reporting-" target="_blank">View on GitHub</a>
             </div>
           </div>
         </div>
-        <!-- Internship 2 -->
-        <div class="internship-card">
-          <img src="assets/ai_data_insights.jpg" alt="AI Data Insights Internship">
-          <div class="internship-card-content">
-            <h3>AI-Powered Data Insights Internship – Excelerate</h3>
-            <p><strong>Platform:</strong> Excelerate</p>
-            <p><strong>Role:</strong> Data Analyst</p>
-            <p><strong>Duration:</strong> June – July 2025</p>
+        <!-- EXP 2 -->
+        <div class="experience-card">
+          <img src="assets/marketing_insights.jpg" alt="Marketing Insights & Visualization">
+          <div class="experience-card-content">
+            <h3>Data Analyst – Marketing Insights & Visualization</h3>
+            <p><strong>Platform:</strong> Globalshala</p>
+            <p><strong>Duration:</strong> November 2023 - December 2024</p>
             <p><strong>Location:</strong> Remote | Dubai, UAE</p>
-            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
-            <div class="internship-details">
+            <div class="tools-row">
+              <i class="fab fa-python tool-icon" title="Python"></i>
+              <i class="fa-solid fa-chart-bar tool-icon" title="Power BI"></i>
+              <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
+            </div>
+            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <div class="experience-details">
               <ul>
-                <li>Analyzed student engagement data to uncover signup trends, identify drop-off patterns, and recommend strategies for improving completion rates.</li>
-                <li>Cleaned and transformed raw datasets, conducted exploratory data analysis (EDA), and built predictive churn models using classification techniques.</li>
-                <li>Delivered a final report and presentation highlighting insights, model outcomes, and an initial recommendation system to enhance student retention.</li>
-                <li>Collaborated with an international team of data interns, coordinating across time zones to deliver a cohesive, data-driven solution.</li>
+                <li>Cleaned, analyzed, and visualized digital marketing campaign data (Excel, Power BI, Python) to deliver insights on ROI and ad performance (Reach, CTR, CPC, Impressions).</li>
+                <li>Built interactive dashboards and reports for KPI tracking, budget optimization, and strategic decision-making.</li>
+                <li>Conducted competitor analysis, trend research, and audience segmentation, improving brand positioning and engagement across Instagram & LinkedIn.</li>
+                <li>Partnered with cross-functional teams to convert raw data into actionable insights, driving campaign innovation and measurable business results.</li>
+                <li>Improved overall marketing strategy by transforming complex data into clear, decision-ready insights that directly contributed to growth.</li>
               </ul>
-              <a class="btn-github" href="https://github.com/hurabbas05/AI-Data-Insights-Internship" target="_blank">View on GitHub</a>
+              <a class="btn-github" href="https://github.com/hurabbas05/Data-Analyst-Marketing-Insights-Visualization" target="_blank">View on GitHub</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="internship-row">
-        <!-- Internship 3 -->
-        <div class="internship-card">
-          <img src="assets/data_visualization.jpg" alt="Data Visualization Internship">
-          <div class="internship-card-content">
-            <h3>Data Visualization Internship – GlobalShala</h3>
-            <p><strong>Platform:</strong> Excelerate</p>
-            <p><strong>Role:</strong> Data Analyst</p>
-            <p><strong>Duration:</strong> July – August 2025</p>
-            <p><strong>Location:</strong> Remote | Dubai, UAE</p>
-            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
-            <div class="internship-details">
+      <div class="experience-row">
+        <!-- EXP 3 -->
+        <div class="experience-card">
+          <img src="assets/elevvo_internship.jpg" alt="Data Analytics Internship">
+          <div class="experience-card-content">
+            <h3>Data Analytics Internship</h3>
+            <p><strong>Platform:</strong> Elevvo Pathways - Data Analyst</p>
+            <p><strong>Duration:</strong> July - August 2025</p>
+            <p><strong>Location:</strong> Remote | Cairo, Egypt</p>
+            <div class="tools-row">
+              <i class="fab fa-python tool-icon" title="Python"></i>
+              <i class="fa-solid fa-database tool-icon" title="SQL"></i>
+              <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
+              <i class="fa-solid fa-chart-bar tool-icon" title="Power BI"></i>
+            </div>
+            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <div class="experience-details">
               <ul>
-                <li>Analyzed Facebook Ad campaign data from GlobalShala’s Superhero U event to identify underperforming ads using key metrics like Reach, CTR, CPC, and Impressions.</li>
-                <li>Created clear, engaging visual reports in Excel to highlight ad performance gaps and support data-driven decisions for the Finance team.</li>
-                <li>Collaborated with team members to deliver a final presentation summarizing campaign trends, key insights, and cost-saving recommendations.</li>
+                <li>Completed a 1-month Data Analytics Track with focus on real-world projects and case studies.</li>
+                <li>Conducted data cleaning, transformation, and visualization using Python, SQL, Excel, and Power BI.</li>
+                <li>Applied statistical methods and hypothesis testing to extract actionable business insights.</li>
+                <li>Built interactive dashboards and professional reports aligned with industry standards.</li>
               </ul>
-              <a class="btn-github" href="https://github.com/hurabbas05/Data-Visualization-Internship" target="_blank">View on GitHub</a>
+              <a class="btn-github" href="https://github.com/hurabbas05/Data-Analytics-Internship-Elevvo" target="_blank">View on GitHub</a>
             </div>
           </div>
         </div>
-        <!-- Internship 4 -->
-        <div class="internship-card">
-          <img src="assets/project_management.jpg" alt="Project Management Internship">
-          <div class="internship-card-content">
-            <h3>Project Management Internship – Excelerate</h3>
-            <p><strong>Platform:</strong> Excelerate</p>
-            <p><strong>Role:</strong> Project Manager</p>
-            <p><strong>Duration:</strong> July – August 2025</p>
+        <!-- EXP 4 -->
+        <div class="experience-card">
+          <img src="assets/global_project_management.jpg" alt="Project Management Global Internship">
+          <div class="experience-card-content">
+            <h3>Project Management Global Internship</h3>
+            <p><strong>Platform:</strong> Excelerate - Project Manager</p>
+            <p><strong>Duration:</strong> July - August 2025</p>
             <p><strong>Location:</strong> Remote | Dubai, UAE</p>
-            <button class="btn-readmore" onclick="toggleInternship(this)">Read More</button>
-            <div class="internship-details">
+            <div class="tools-row">
+              <i class="fa-solid fa-file-excel tool-icon" title="Excel"></i>
+              <i class="fa-solid fa-palette tool-icon" title="Canva"></i>
+              <i class="fa-solid fa-table tool-icon" title="Google Sheets"></i>
+            </div>
+            <button class="btn-readmore" onclick="toggleExperience(this)">Read More</button>
+            <div class="experience-details">
               <ul>
                 <li>Planned a global experiential learning event, developing the Project Charter, Work Breakdown Structure, and team proposal aligned with a $30,000 budget and 6-month timeline.</li>
                 <li>Created a Gantt chart with task sequences, dependencies, and milestones to streamline execution.</li>
                 <li>Built a comprehensive Risk Register with mitigation strategies for major project risks.</li>
                 <li>Presented the final project plan to leadership, demonstrating strong timeline control, risk management, and implementation readiness.</li>
               </ul>
-              <a class="btn-github" href="https://github.com/hurabbas05/Project-Management-Internship" target="_blank">View on GitHub</a>
+              <a class="btn-github" href="https://github.com/hurabbas05/Project-Management-Internship-Excelerate" target="_blank">View on GitHub</a>
             </div>
           </div>
         </div>
@@ -530,19 +637,69 @@
 
   <section id="certs" class="section">
     <h2>Certifications</h2>
-    <div class="grid-2">
-      <div class="project-card">
-        <div class="project-card-content">
-          <h3>Data Analytic Certificate</h3>
-          <p><strong>Institute:</strong> Institute of Emerging Careers</p>
-          <p>Completed an intensive, project-based cohort program mastering Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn), MySQL, Excel, Power BI, Tableau, and statistical analysis - gaining hands-on experience through real-world datasets, predictive modeling, and business-focused insights.</p>
+    <div class="cert-cards-flex">
+      <div class="cert-row">
+        <div class="cert-card">
+          <div class="cert-card-content">
+            <h3>Data Analytic Certificate</h3>
+            <p><strong>Institute:</strong> Institute of Emerging Careers</p>
+            <p>Mastered essential data analytics tools and methodologies through real-world projects, enhancing my ability to deliver business-focused insights.</p>
+            <a class="cert-view-btn" href="https://lnd.iec.org.pk/certificate/Certificate677.png" target="_blank">VIEW</a>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-card-content">
+            <h3>Data Analytic job simulation Certificate</h3>
+            <p><strong>Institute:</strong> Deloitte Australia</p>
+            <p>Developed actionable business insights from simulated analytics projects, optimizing decision-making for global organizations.</p>
+            <a class="cert-view-btn" href="https://lnd.iec.org.pk/certificate/Certificate677.png" target="_blank">VIEW</a>
+          </div>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-card-content">
-          <h3>AI for Everyone</h3>
-          <p><strong>Institute:</strong> Coursera (by Andrew Ng)</p>
-          <p>Developed a strong understanding of practical AI concepts and ethics, enabling collaboration and leadership in innovative, AI-driven teams and projects.</p>
+      <div class="cert-row">
+        <div class="cert-card">
+          <div class="cert-card-content">
+            <h3>Data Analytic job simulation Certificate</h3>
+            <p><strong>Institute:</strong> Quantium</p>
+            <p>Built data-driven solutions for digital transformation, focusing on revenue growth and operational excellence through analytics best practices.</p>
+            <a class="cert-view-btn" href="https://lnd.iec.org.pk/certificate/Certificate677.png" target="_blank">VIEW</a>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-card-content">
+            <h3>GenAI Powered Data Analytics</h3>
+            <p><strong>Institute:</strong> Tata group</p>
+            <p>Leveraged generative AI for advanced analytics, driving innovation and efficiency in dynamic business environments.</p>
+            <a class="cert-view-btn" href="https://lnd.iec.org.pk/certificate/Certificate677.png" target="_blank">VIEW</a>
+          </div>
+        </div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-card">
+          <div class="cert-card-content">
+            <h3>Introduction to Data Science</h3>
+            <p><strong>Institute:</strong> Commonwealth Bank</p>
+            <p>Gained practical data science knowledge, enabling data-driven decision making in financial and corporate domains.</p>
+            <a class="cert-view-btn" href="https://lnd.iec.org.pk/certificate/Certificate677.png" target="_blank">VIEW</a>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-card-content">
+            <h3>Quantitative Research</h3>
+            <p><strong>Institute:</strong> J.P.Morgan Chase & Co.</p>
+            <p>Applied quantitative research techniques to solve complex business problems and support strategic projects.</p>
+            <a class="cert-view-btn" href="https://lnd.iec.org.pk/certificate/Certificate677.png" target="_blank">VIEW</a>
+          </div>
+        </div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-card">
+          <div class="cert-card-content">
+            <h3>AI for Everyone</h3>
+            <p><strong>Institute:</strong> Coursera (by Andrew Ng)</p>
+            <p>Developed a strong understanding of practical AI concepts and ethics, enabling collaboration and leadership in innovative, AI-driven teams and projects.</p>
+            <a class="cert-view-btn" href="https://lnd.iec.org.pk/certificate/Certificate677.png" target="_blank">VIEW</a>
+          </div>
         </div>
       </div>
     </div>
@@ -569,14 +726,14 @@
   </footer>
 
   <script>
-    // Internship details toggle: only one card toggles at a time
-    function toggleInternship(btn) {
-      var card = btn.closest('.internship-card');
-      var details = card.querySelector('.internship-details');
-      document.querySelectorAll('.internship-details').forEach(function(d) {
+    // Project details toggle: only one card toggles at a time
+    function toggleProject(btn) {
+      var card = btn.closest('.project-card');
+      var details = card.querySelector('.project-details');
+      document.querySelectorAll('.project-details').forEach(function(d) {
         if (d !== details) { d.style.display = "none"; }
       });
-      document.querySelectorAll('.internship-card .btn-readmore').forEach(function(b) {
+      document.querySelectorAll('.project-card .btn-readmore').forEach(function(b) {
         if (b !== btn) { b.innerText = "Read More"; }
       });
       if (details.style.display === "block") {
@@ -587,14 +744,14 @@
         btn.innerText = "Hide Details";
       }
     }
-    // Project details toggle: only one card toggles at a time
-    function toggleProject(btn) {
-      var card = btn.closest('.project-card');
-      var details = card.querySelector('.project-details');
-      document.querySelectorAll('.project-details').forEach(function(d) {
+    // Experience details toggle: only one card toggles at a time
+    function toggleExperience(btn) {
+      var card = btn.closest('.experience-card');
+      var details = card.querySelector('.experience-details');
+      document.querySelectorAll('.experience-details').forEach(function(d) {
         if (d !== details) { d.style.display = "none"; }
       });
-      document.querySelectorAll('.project-card .btn-readmore').forEach(function(b) {
+      document.querySelectorAll('.experience-card .btn-readmore').forEach(function(b) {
         if (b !== btn) { b.innerText = "Read More"; }
       });
       if (details.style.display === "block") {
