@@ -43,33 +43,59 @@
       transition: color 0.2s;
     }
     nav a:hover { color: #7c3aed; }
+    /* Mobile navigation hamburger menu */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      margin-right: 1rem;
+    }
     @media (max-width: 900px) {
-      nav .nav-links {
-        flex-direction: column;
-        gap: 0.7rem;
-      }
       nav {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         padding: 1rem;
+        position: relative;
       }
       nav .nav-title {
-        margin-bottom: 0.7rem;
+        margin-bottom: 0;
+      }
+      .nav-links {
+        flex-direction: row;
+        gap: 1rem;
       }
     }
     @media (max-width: 600px) {
-      nav .nav-links {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 0.7rem 1.2rem;
-        margin-top: 0.8rem;
-        width: 100%;
+      .nav-toggle {
+        display: block;
       }
       nav {
+        flex-direction: row;
+        align-items: center;
         padding: 1rem 0.4rem;
       }
       nav .nav-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin-bottom: 0;
+      }
+      nav .nav-links {
+        position: absolute;
+        top: 3.2rem;
+        left: 0;
+        width: 100%;
+        background-color: #0f172a;
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 0.8rem 1rem 0.8rem;
+        z-index: 9999;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+      }
+      nav .nav-links.open {
+        display: flex;
       }
       nav .nav-links a {
         font-size: 1rem;
@@ -102,9 +128,38 @@
       font-weight: 600;
       color: #f3f4f6;
       letter-spacing: 1px;
+      opacity: 0.85;
     }
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
       header .portfolio-title { position: static; display: block; margin-bottom: 1rem;}
+    }
+    @media (max-width:600px) {
+      header {
+        padding: 1.6rem 0.3rem 1.2rem 0.3rem;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+        word-break: break-word;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      header .portfolio-title {
+        font-size: 0.98rem;
+        position: static;
+        margin-bottom: 0.4rem;
+        color: #f3f4f6;
+      }
+      header .subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+        color: #f1f5f9;
+      }
+      .contact-info {
+        margin-top: 1.2rem;
+        gap: 0.7rem;
+      }
     }
     .contact-info, .footer-contact-info {
       margin-top: 1.5rem;
@@ -197,7 +252,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
       .grid-2 { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
     }
@@ -281,7 +336,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
       .internship-row, .experience-row, .cert-row { grid-template-columns: 1fr; }
     }
     .project-card {
@@ -358,12 +413,30 @@
       background: linear-gradient(90deg, #7c3aed 60%, #0ea5e9 100%);
       color: #fff;
     }
+    /* Card image fix for blank images - fallback */
+    .card img, .internship-card img, .experience-card img, .project-card img {
+      background: #e3f2fd;
+      min-height: 210px;
+      border-bottom: 1.5px solid #e0e7ef;
+    }
+    .card img[src=""], .internship-card img[src=""], .experience-card img[src=""], .project-card img[src=""] {
+      background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    /* Custom fallback for experience/project images (if not found) */
+    .experience-card img[src=""], .project-card img[src=""] {
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80');
+      background-size: cover;
+      background-position: center;
+    }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-title">Syed Hur Abbas Naqvi</div>
-    <div class="nav-links">
+    <button class="nav-toggle" aria-label="Menu" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+    <div class="nav-links" id="mainNavLinks">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -448,7 +521,7 @@
     <div class="grid-2">
       <!-- RetailX Project -->
       <div class="card project-card">
-        <img src="assets/retailx_dashboard.jpg" alt="RetailX Revenue Insights">
+        <img src="assets/retailx_dashboard.jpg" alt="RetailX Revenue Insights" onerror="this.src='https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=800&q=80';">
         <div class="project-card-content">
           <h3>RetailX Data Analytics: Revenue Insights & Visualization</h3>
           <div class="tools-row">
@@ -470,7 +543,7 @@
       </div>
       <!-- Loan Default Project -->
       <div class="card project-card">
-        <img src="assets/loan_default.jpg" alt="Loan Project">
+        <img src="assets/loan_default.jpg" alt="Loan Project" onerror="this.src='https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80';">
         <div class="project-card-content">
           <h3>Loan Default Risk Analysis</h3>
           <div class="tools-row">
@@ -498,7 +571,7 @@
     <div class="grid-2" style="margin-top:2rem;">
       <!-- Capstone Dry Eye Disease Project -->
       <div class="card project-card">
-        <img src="assets/ded_thumbnail.jpg" alt="DED Project">
+        <img src="assets/ded_thumbnail.jpg" alt="DED Project" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80';">
         <div class="project-card-content">
           <h3>Capstone Dry Eye Disease Project</h3>
           <div class="tools-row">
@@ -528,7 +601,7 @@
       <div class="experience-row">
         <!-- EXP 1 -->
         <div class="experience-card">
-          <img src="assets/business_insights.jpg" alt="Business Insights & Reporting">
+          <img src="assets/business_insights.jpg" alt="Business Insights & Reporting" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80';">
           <div class="experience-card-content">
             <h3>Data Analyst – Business Insights & Reporting</h3>
             <p><strong>Platform:</strong> Excelerate</p>
@@ -554,7 +627,7 @@
         </div>
         <!-- EXP 2 -->
         <div class="experience-card">
-          <img src="assets/marketing_insights.jpg" alt="Marketing Insights & Visualization">
+          <img src="assets/marketing_insights.jpg" alt="Marketing Insights & Visualization" onerror="this.src='https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80';">
           <div class="experience-card-content">
             <h3>Data Analyst – Marketing Insights & Visualization</h3>
             <p><strong>Platform:</strong> Globalshala</p>
@@ -582,7 +655,7 @@
       <div class="experience-row">
         <!-- EXP 3 -->
         <div class="experience-card">
-          <img src="assets/elevvo_internship.jpg" alt="Data Analytics Internship">
+          <img src="assets/elevvo_internship.jpg" alt="Data Analytics Internship" onerror="this.src='https://images.unsplash.com/photo-1556740772-1a741367b93e?auto=format&fit=crop&w=800&q=80';">
           <div class="experience-card-content">
             <h3>Data Analytics Internship</h3>
             <p><strong>Platform:</strong> Elevvo Pathways - Data Analyst</p>
@@ -608,7 +681,7 @@
         </div>
         <!-- EXP 4 -->
         <div class="experience-card">
-          <img src="assets/global_project_management.jpg" alt="Project Management Global Internship">
+          <img src="assets/global_project_management.jpg" alt="Project Management Global Internship" onerror="this.src='https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80';">
           <div class="experience-card-content">
             <h3>Project Management Global Internship</h3>
             <p><strong>Platform:</strong> Excelerate - Project Manager</p>
@@ -726,16 +799,22 @@
   </footer>
 
   <script>
-    // Project details toggle: only one card toggles at a time
+    // Mobile Nav Hamburger
+    function toggleMenu() {
+      var navLinks = document.getElementById("mainNavLinks");
+      navLinks.classList.toggle("open");
+    }
+    // Project details toggle: only one card toggles at a time per row
     function toggleProject(btn) {
       var card = btn.closest('.project-card');
-      var details = card.querySelector('.project-details');
-      document.querySelectorAll('.project-details').forEach(function(d) {
-        if (d !== details) { d.style.display = "none"; }
+      var parentRow = card.parentNode;
+      parentRow.querySelectorAll('.project-card .project-details').forEach(function(d) {
+        if (!d.contains(btn)) d.style.display = "none";
       });
-      document.querySelectorAll('.project-card .btn-readmore').forEach(function(b) {
+      parentRow.querySelectorAll('.project-card .btn-readmore').forEach(function(b) {
         if (b !== btn) { b.innerText = "Read More"; }
       });
+      var details = card.querySelector('.project-details');
       if (details.style.display === "block") {
         details.style.display = "none";
         btn.innerText = "Read More";
@@ -744,16 +823,17 @@
         btn.innerText = "Hide Details";
       }
     }
-    // Experience details toggle: only one card toggles at a time
+    // Experience details toggle: only one card toggles at a time per row
     function toggleExperience(btn) {
       var card = btn.closest('.experience-card');
-      var details = card.querySelector('.experience-details');
-      document.querySelectorAll('.experience-details').forEach(function(d) {
-        if (d !== details) { d.style.display = "none"; }
+      var parentRow = card.parentNode;
+      parentRow.querySelectorAll('.experience-card .experience-details').forEach(function(d) {
+        if (!d.contains(btn)) d.style.display = "none";
       });
-      document.querySelectorAll('.experience-card .btn-readmore').forEach(function(b) {
+      parentRow.querySelectorAll('.experience-card .btn-readmore').forEach(function(b) {
         if (b !== btn) { b.innerText = "Read More"; }
       });
+      var details = card.querySelector('.experience-details');
       if (details.style.display === "block") {
         details.style.display = "none";
         btn.innerText = "Read More";
@@ -762,6 +842,14 @@
         btn.innerText = "Hide Details";
       }
     }
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(function(link){
+      link.addEventListener('click', function(){
+        if(window.innerWidth < 601){
+          document.getElementById("mainNavLinks").classList.remove("open");
+        }
+      });
+    });
   </script>
 </body>
 </html>
